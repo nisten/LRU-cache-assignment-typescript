@@ -1,0 +1,14 @@
+{
+  "name": "chisel",
+  "version": "1.0.0",
+  "author": "nisten",
+  "main": "chisel.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^12.12.14",
+    "typescript": "^3.7.2"
+  },
+  "scripts": {
+    "tsc": "tsc"
+  }
+}
