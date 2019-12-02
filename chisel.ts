@@ -1,7 +1,13 @@
-class LRUCache {
+interface LRUinterface {
+  cache: object;
+  maxSize: number;
+  data: string[];
+}
+
+class LRUCache implements LRUinterface {
   cache: object = {};
   data: string[] = [];
-  maxSize: number;
+  maxSize: number = 0;
 
   constructor(size: number) {
     this.maxSize = size;
@@ -53,20 +59,20 @@ class LRUCache {
 const myCache = new LRUCache(4);
 
 myCache.put("key1", 5);
-myCache.put("key2", 1);
+myCache.put("key2", 22);
 myCache.put("key3", 8);
 myCache.put("key4", 3);
 myCache.put("key5", 13);
 
-console.log("First key value is kicked out and returns: ", myCache.get("key1"))
-
+// Now we get the LRU cache to dump the first key
+console.log(`First key value is kicked out and returns: `, myCache.get("key1"));
 
 const tryIt = require("readline").createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-// at this point I'd expect my LRU cache to dump the first key
+
 tryIt.question(`Try another key to get (key1 - key5): `, (key: string) => {
   console.log(myCache.get(key));
   tryIt.close();
